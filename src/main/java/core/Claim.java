@@ -11,11 +11,11 @@ public class Claim{
 
     @Override
     public String toString() {
-        return "Claim{" +
-                "text='" + text + '\'' +
-                ", claimReview=" + claimReview +
-                ", claimant='" + claimant + '\'' +
-                ", claimDate=" + claimDate +
-                '}';
+        return "{\"Claim\":{"
+                + "                        \"text\":\"" + text + "\""
+                + ",                         \"claimReview\":" + claimReview
+                + ",                         \"claimant\":\"" + claimant + "\""
+                + ",                         \"claimDate\":" + claimDate
+                + "}}";
     }
 }

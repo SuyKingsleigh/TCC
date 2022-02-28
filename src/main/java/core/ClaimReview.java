@@ -12,13 +12,13 @@ public class ClaimReview {
 
     @Override
     public String toString() {
-        return "ClaimReview{" +
-                "publisher=" + publisher +
-                ", url='" + url + '\'' +
-                ", title='" + title + '\'' +
-                ", reviewDate=" + reviewDate +
-                ", textualRating='" + textualRating + '\'' +
-                ", languageCode='" + languageCode + '\'' +
-                '}';
+        return "{\"ClaimReview\":{"
+                + "                        \"publisher\":" + publisher
+                + ",                         \"url\":\"" + url + "\""
+                + ",                         \"title\":\"" + title + "\""
+                + ",                         \"reviewDate\":" + reviewDate
+                + ",                         \"textualRating\":\"" + textualRating + "\""
+                + ",                         \"languageCode\":\"" + languageCode + "\""
+                + "}}";
     }
 }

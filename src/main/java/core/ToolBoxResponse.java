@@ -7,8 +7,8 @@ public class ToolBoxResponse{
 
     @Override
     public String toString() {
-        return "ToolBoxResponse{" +
-                "claims=" + claims +
-                '}';
+        return "{\"ToolBoxResponse\":{"
+                + "                        \"claims\":" + claims
+                + "}}";
     }
 }
