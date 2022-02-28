@@ -16,7 +16,7 @@ public class Controller {
             .protocols(Collections.singletonList(Protocol.HTTP_1_1))
             .build();
 
-    private static final String API_KEY = "AIzaSyCJZWEPBKFNqXADE7PRbMnsKyhcOFaYgN0";
+    private static final String API_KEY = System.getenv("API_KEY");
     private static final String BASE_URL = "https://factchecktools.googleapis.com/v1alpha1/";
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
