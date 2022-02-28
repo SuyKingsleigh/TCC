@@ -10,4 +10,9 @@ public class ClaimReview {
     public String textualRating;
     public String languageCode;
 
+
+    public String getUrl() {
+        return this.url;
+    }
+
 }
