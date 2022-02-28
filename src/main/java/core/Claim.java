@@ -9,13 +9,4 @@ public class Claim{
     public String claimant;
     public Date claimDate;
 
-    @Override
-    public String toString() {
-        return "{\"Claim\":{"
-                + "                        \"text\":\"" + text + "\""
-                + ",                         \"claimReview\":" + claimReview
-                + ",                         \"claimant\":\"" + claimant + "\""
-                + ",                         \"claimDate\":" + claimDate
-                + "}}";
-    }
 }

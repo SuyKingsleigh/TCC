@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import core.ToolBoxResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,8 @@ public class FactCheckToolbox {
 
             ToolBoxResponse toolBoxResponse = controller.getClaims(s);
             logger.debug("Responding with: " + toolBoxResponse);
-            return toolBoxResponse;
+
+            return new ObjectMapper().writeValueAsString(toolBoxResponse);
         });
     }
 
