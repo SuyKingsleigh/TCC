@@ -1,6 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.Claim;
-import core.ClaimReview;
 import core.ToolBoxResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
