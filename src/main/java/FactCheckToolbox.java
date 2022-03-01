@@ -55,7 +55,14 @@ public class FactCheckToolbox {
                 return json.toString();
             } catch (Throwable t) {
                 logger.error("Failed to handle claims", t);
-                return "Desculpe, não consegui encontrar nada :C";
+
+                JSONObject jsonObject = new JSONObject();
+                JSONArray arr = new JSONArray();
+
+                arr.put("Desculpe, não consegui encontrar nada :C");
+                jsonObject.put("data", arr);
+
+                return jsonObject.toString();
             }
         });
     }
