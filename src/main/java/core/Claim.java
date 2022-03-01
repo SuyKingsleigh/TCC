@@ -14,7 +14,7 @@ public class Claim {
         return claim.text +
                 (claim.claimant != null && !claim.claimant.isEmpty() ? " de acordo com '" + claim.claimant + "'" : "") +
                 "\nVocê pode verificar mais em: "
-                + claim.claimReview.stream().map(ClaimReview::getUrl).collect(Collectors.joining("\n\n"));
+                + claim.claimReview.stream().map(ClaimReview::getUrl).collect(Collectors.joining("\n"));
     }
 
 }

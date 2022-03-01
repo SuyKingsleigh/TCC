@@ -1,11 +1,14 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import core.Claim;
 import core.ToolBoxResponse;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Spark;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class FactCheckToolbox {
@@ -33,11 +36,16 @@ public class FactCheckToolbox {
                 String s = request.queryString();
                 logger.debug("Received request to check claims: " + s);
 
-                return controller.getClaims(s)
-                        .claims
-                        .stream()
-                        .map(Claim::prettyClaim)
-                        .collect(Collectors.joining("\n"));
+                JSONObject json = new JSONObject();
+                json.put("data",
+                        controller.getClaims(s)
+                                .claims
+                                .stream()
+                                .map(Claim::prettyClaim)
+                                .collect(Collectors.toList())
+                );
+
+                return json.toString();
             } catch (Throwable t) {
                 logger.error("Failed to handle claims", t);
                 return "Desculpe, não consegui encontrar nada :C";
