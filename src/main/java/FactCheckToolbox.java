@@ -2,11 +2,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import core.Claim;
 import core.ToolBoxResponse;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Spark;
 
+import javax.xml.ws.WebServiceException;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.stream.Collectors;
@@ -34,16 +36,21 @@ public class FactCheckToolbox {
         Spark.get("checkPretty", (request, response) -> {
             try {
                 String s = request.queryString();
-                logger.debug("Received request to check claims: " + s);
+                logger.info("Received request to check claims: " + s);
 
                 JSONObject json = new JSONObject();
+                ToolBoxResponse toolBoxResponse = controller.getClaims(s);
+
                 json.put("data",
-                        controller.getClaims(s)
-                                .claims
-                                .stream()
-                                .map(Claim::prettyClaim)
-                                .collect(Collectors.toList())
+                        toolBoxResponse != null && toolBoxResponse.claims != null ?
+                                toolBoxResponse
+                                        .claims
+                                        .stream()
+                                        .map(Claim::prettyClaim)
+                                        .collect(Collectors.toList())
+                                : new JSONArray()
                 );
+
 
                 return json.toString();
             } catch (Throwable t) {

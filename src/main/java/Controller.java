@@ -1,12 +1,11 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import core.ToolBoxResponse;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.Response;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collections;
 
@@ -41,7 +40,7 @@ public class Controller {
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            logger.debug("Called URL `" + url + "` received code: " + response.code());
+            logger.info("Called URL `" + url + "` received code: " + response.code());
 
             if (response.isSuccessful() && response.body() != null)
                 return new ObjectMapper().readValue(response.body().string(), ToolBoxResponse.class);
