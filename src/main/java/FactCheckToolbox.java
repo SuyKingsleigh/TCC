@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Spark;
 
+import javax.xml.ws.WebServiceException;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
@@ -51,15 +52,8 @@ public class FactCheckToolbox {
 
                 return json.toString();
             } catch (Throwable t) {
-                logger.error("Failed to handle claims", t);
-
-                JSONObject jsonObject = new JSONObject();
-                JSONArray arr = new JSONArray();
-
-                arr.put("Desculpe, não consegui encontrar nada :C");
-                jsonObject.put("data", arr);
-
-                return jsonObject.toString();
+                logger.error(String.valueOf(t));
+                throw new WebServiceException("Failed to retrieve data");
             }
         });
     }
