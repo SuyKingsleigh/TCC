@@ -9,6 +9,7 @@ import spark.Spark;
 
 import javax.xml.ws.WebServiceException;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 public class FactCheckToolbox {
@@ -45,10 +46,10 @@ public class FactCheckToolbox {
                                         .claims
                                         .stream()
                                         .map(Claim::prettyClaim)
+                                        .flatMap(Collection::stream)
                                         .collect(Collectors.toList())
                                 : new JSONArray()
                 );
-
 
                 return json.toString();
             } catch (Throwable t) {
