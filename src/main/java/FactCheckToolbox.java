@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 public class FactCheckToolbox {
-    private static final Logger logger = LoggerFactory.getLogger(FactCheckToolbox.class);
+    private static final Logger logger = LoggerFactory.getLogger("FactCheckToolbox");
 
     public static void main(String[] args) {
         Controller controller = new Controller();

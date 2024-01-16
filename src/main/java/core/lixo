@@ -1,0 +1,18 @@
+    print("Starting server with env variables: \n\n" +
+          "\n\tCONSUMER_KEY(API KEY): " + CONSUMER_KEY +
+          "\n\tCONSUMER_SECRET(API KEY SECRET): " + CONSUMER_SECRET +
+          "\n\tACCESS_TOKEN: " + ACCESS_TOKEN +
+          "\n\tACCESS_TOKEN_SECRET: " + ACCESS_TOKENS_SECRET +
+          "\n\tMY_USER_ID: " + MY_USER_ID + "\n\n\n\n"
+          )
+
+    # API Key aTRyLeCEMXNgGzo9JZ3zxRuVE
+    # API Key secret UI1uAe9trtmU8lGLeEyNOkVrWJyrvTkqAoeVob5VliBa6HRJsr
+
+    # Bearer Token AAAAAAAAAAAAAAAAAAAAAODHZQEAAAAAX9lhenzuZWIGajoqy5IFeJ%2F0XIA%3DvMW7mwPYxXondZfcNJUELfQvmKhOmDFNrAx3WvtW5CG5nkVVyp
+
+    # Access Token: 1495378006994571267-sY5l4Rzb9KYOt2ovliBODwFjtLEu0r
+    # Access Token Secret: vSPZDSCYZ94phODcQrWtHLTQK1YI5PMikL91UvjE9CyQ5
+    # ClientID Zy1lYnlBeWJXZEgtcF9QWjJTdnQ6MTpjaQ
+    # Client secrete: zZd8ci746RBpGkxGgwvRJ0NDnJedXXiJTfK6O46sm9uAGt9UFt
+    # App ID: 23447520
