@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  agentefactchecker:
+    image: factchecktool
+    ports:
+      - "8080:8080"
+
+  agentetwitter:
+    image: agenttwitter
+    environment:
+      - DB_USER: admin
+      - DB_PASS: password
+      - DB_HOST: mysql-service
+      - DB_NAME: tcc
+      - CONSUMER_KEY: xdYnOeyNldGj9KSYwXOnSDIw3
+      - CONSUMER_SECRET: 9yhNiiZXECvrJz9t4JstFBYmJA1ayA2EqfvF0JSEXXfWUZb8Iu
+      - ACCESS_TOKEN: 1495378006994571267-Q72Pnf5uVJin7ep6DhtYyoTiTxDjui
+      - ACCESS_TOKENS_SECRET: Zh7OTyR12Zaa3oVabHP7NH7YAvViJGTWYKUjiGVfRH5bS
+      - MY_USER_ID: 23447520
+
+
+  mysql-service:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: tcc
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
